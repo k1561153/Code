@@ -1,148 +1,256 @@
 // Welcome!
+//                _
+//            ,.-" "-.,
+//           /   ===   \
+//          /  =======  \
+//       __|  (o)   (0)  |__
+//      / _|    .---.    |_ \
+//     | /.----/ O O \----.\ |
+//      \/     |     |     \/
+//      |                   |
+//      |                   |
+//      |                   |
+//      _\   -.,_____,.-   /_
+//  ,.-"  "-.,_________,.-"  "-.,
+// /          |       |          \
+//|           l.     .l           |
+//|            |     |            |
+//l.           |     |           .l
+// |           l.   .l           | \,
+// l.           |   |           .l   \,
+//  |           |   |           |      \,
+//  l.          |   |          .l        |
+//   |          |   |          |         |
+//   |          |---|          |         |
+//   |          |   |          |         |
+//   /"-.,__,.-"\   /"-.,__,.-"\"-.,_,.-"\
+//  |            \ /            |         |
+//  |             |             |         |
+//   \__|__|__|__/ \__|__|__|__/ \_|__|__/
 //
-//                                                  #    #
-//                                             %%% ##   ##
-//                                          %%%%% ###%🎀###
-//                                         %%%%% ### %%% #
-//                                       %%%%%% ### %%% ###
-//                                        %%%% ## %% #######
-//                                       %%%%% # %% #@#####
-//                                     %%%%%% # % #########
-//                                    %%%%% ##### #########
-//                          ###        %% ####### #########
-//                 %%% ############    ########### ########
-//              %%%% ############################### #######
-//            %%%%% ################################## ######
-//          %%%%%% #################################### #C###
-//         %%%🌸%% #####################################  ###
-//         %%%%% #######################################
-//        %%%%%% ############### BEANS ##################
-//     % %%%%%%% ############### BEANS ##################
-//      %%%%%%%%% ############## BEANS ##################
-//     %%%%%%%%%% ########################################
-//  %%% %%%%%%%%   ###### ################################
-//    %%%%%%%%      ###### #################### ##########
-// % %%%🌸%%%%        ####### ########### ###### ##########
-//  %%%%%%%%%         #######  ########### ###### ########
-// %%%%%%%%%%          ##### ###  ######### ####### ######
-//  %%%%%%%%%%          #### ##               ####### ####
-//  %🌸%%%%%%%%%           ## #                  ##### ###
-//   %%  %% % %%         # ##                      ## ###
-//     %   %    %        # ###                      # ###
-//                        # ###                     ## ###
-//                        # ###                     ## ###
-//                        # ####                   #### ##
-//                       ### ###                  ##### ###
-//                      ####  ###                 ####   ##
-//                     #####   ###                 ##    ##
-//                    #####    ####                      ###
-//                     ##        ###                     ###
-//                                ####                     ##
-//                                 ####                    ###
-//                                                         ####
-//                                                          ##
-//
-// This is a template for your labs and final project. You'll be setting up a stable and making
+// This is a template for the final project. You'll be setting up a stable and making
 // sure it runs smoothly.
 //
-// Please do not create a new file for each lab!
+// You can copy and paste this into your stables.js file, and then use it to guide you.
+// Please do not create a new file!
 // Feel free to keep the headings (e.g.: "Variables"), but please delete any boilerplate
 // comments. (Your own comments, where necessary, are acceptable.)
 //
 // NOTE: UNLESS SPECIFIED, VARIABLE NAMING IS UP TO YOU. THERE SHOULD BE NO HARD-CODED
 // NUMBERS OR STRINGS WHERE VARIBALES WOULD BE PREFERRED.
 
-//------------------------- Seting up shop (Lab #1, Week 3) -------------------------//
+//------------------------- Setting up shop -------------------------//
 
-// Declare variables with values for the following:
-// - the name of the horse at the stable
-// - the age of the horse
-// - whether the horse is inside or outside
-// - the cost to board the horse monthly
-// - the fee for a late payment (monthly rate + 20%)
-//
-// Create a variable and use it to store a message for visitors to the stable.
-// Create a variable and use it to store a message that monthly payment is late, and the amount owing.
-// Include the name of your horse in the message.
+let horses = [];
+let welcomeMessage = "Welcome to Stable Stables";
+let lateFee = 50;
+let availableStalls = 10;
 
-let horseName = "Beans";
-let horseAge = 7;
-let isInside = true;
-let monthlyFee = 100;
-let lateFee = monthlyFee * 1.2;
+//------------------------- First day -------------------------//
 
-let visitorsMessage = "Welcome to the stable!";
-let lateMessage =
-    "Payment for " + horseName + " is late. Amount owing: $" + lateFee;
+function Horse(
+    name,
+    nickname,
+    favoriteTreat,
+    age,
+    rent,
+    isInside,
+    color,
+    personality
+) {
+    this.name = name;
+    this.nickname = nickname;
+    this.favoriteTreat = favoriteTreat;
+    this.age = age;
+    this.monthlyRent = rent;
+    this.isInside = isInside;
+    this.color = color;
+    this.personality = personality;
+    this.isHungry = false;
 
-//------------------------- First day (Lab #2, Week 4) -------------------------//
+    this.introduce = function () {
+        console.log(
+            `I'm ${this.name}, but my nickname is ${this.nickname}. I'm ${this.age} years old and I like ${this.favoriteTreat}.`
+        );
+    };
 
-// Using an object, add at least 3 horses to your stables.
-//
-// The horses should have the following properties:
-// - name, nickname, favorite treat (string)
-// - age, monthly rent (number)
-// - location (boolean inside/outside)
-// - two unique properties of your choice (use any primitive)
+    this.uniqueAction = function () {
+        console.log(
+            `${this.nickname} is ${this.color} and is ${this.personality}.`
+        );
+    };
+}
 
-// Store the horses you've just created in a "horses" variable.
-// Keep your old horse info from week one for now.
+let horse1 = new Horse(
+    "Johnny",
+    "John",
+    "apples",
+    6,
+    300,
+    true,
+    "brown",
+    "aggressive"
+);
+let horse2 = new Horse(
+    "Bobby",
+    "Bob",
+    "carrots",
+    7,
+    350,
+    false,
+    "black",
+    "shy"
+);
+let horse3 = new Horse(
+    "Joey",
+    "Joe",
+    "muffins",
+    8,
+    400,
+    true,
+    "grey",
+    "playful"
+);
 
-// Fancy! Another horse wants to be stabled! Create a variable that stores an object
-// literal of your new horse, and add it to your "horses" variable.
-
-// Initialize new property to your horses: a boolean that allows you to check if your horse
-// is hungry or not. Use dot notation.
-
-let horseOne = {
-    name: horseName,
-    nickname: "Bean",
-    favouriteTreat: "Carrots",
-    age: horseAge,
-    monthlyRent: monthlyFee,
-    isInside: true,
-    colour: "Brown",
-    speed: "Fast",
-};
-
-let horseTwo = {
-    name: "Strawberry",
-    nickname: "Straw",
-    favouriteTreat: "Apples",
-    age: 9,
-    monthlyRent: 300,
-    isInside: false,
-    colour: "White",
-    speed: "Moderate",
-};
-
-let horseThree = {
-    name: "Charlie",
-    nickname: "Char",
-    favouriteTreat: "Cookies",
-    age: 12312,
-    monthlyRent: 400,
-    isInside: true,
-    colour: "Black",
-    speed: "Slow",
-};
-
-let horses = [horseOne, horseTwo, horseThree];
+horses.push(horse1, horse2, horse3);
 
 let newHorse = {
-    name: "Joe",
-    nickname: "Joey",
-    favouriteTreat: "Muffins",
-    age: 6,
-    monthlyRent: 500,
+    name: "Lebron",
+    nickname: "Bron",
+    favoriteTreat: "cookies",
+    age: 9,
+    monthlyRent: 450,
     isInside: false,
-    colour: "Grey",
-    speed: "Very slow",
+    color: "white",
+    personality: "calm",
+    isHungry: false,
+    introduce() {
+        console.log(
+            `I'm ${this.name}, but my nickname is ${this.nickname}. I like ${this.favoriteTreat}!`
+        );
+    },
+    splash() {
+        console.log(`${this.nickname} likes to splash in puddles.`);
+    },
 };
 
 horses.push(newHorse);
 
-horseOne.isHungry = true;
-horseTwo.isHungry = false;
-horseThree.isHungry = true;
-newHorse.isHungry = false;
+horses.forEach((horse) => (horse.isHungry = true));
+
+//------------------------- Stable roster -------------------------//
+
+/*
+{
+  name: "Johnny",
+  nickname: "John",
+  favoriteTreat: "apples",
+  age: 6,
+  monthlyRent: 300,
+  isInside: true,
+  color: "brown",
+  personality: "aggressive",
+  isHungry: true,
+  introduce: function(){...},
+  uniqueAction: function(){...}
+}
+*/
+
+//---------------------- Growing business ----------------------//
+
+availableStalls = availableStalls - horses.length;
+
+if (availableStalls < 2) {
+    console.log("We need to build more stalls");
+} else {
+    console.log(`We have ${availableStalls} available!`);
+}
+
+function calculateLateRent(rent) {
+    console.log(rent + lateFee);
+}
+
+calculateLateRent(horse1.monthlyRent);
+
+let treatToCheck = "carrots";
+
+for (let horse of horses) {
+    if (horse.favoriteTreat === treatToCheck) {
+        console.log(`${horse.nickname} likes ${treatToCheck}!`);
+        break;
+    } else {
+        console.log(
+            `${horse.nickname} does not like ${treatToCheck}. Checking next horse...`
+        );
+    }
+}
+
+function getNickname(horse) {
+    return horse.nickname;
+}
+
+console.log(getNickname(horse2));
+
+//------------------------- Day to day operations -------------------------//
+
+function checkPersonality(horse) {
+    if (horse.personality === "shy") {
+        console.log(`${horse.nickname} is shy.`);
+    } else {
+        console.log(`${horse.nickname} is not shy.`);
+    }
+}
+
+checkPersonality(horse2);
+
+function moveAllOutside() {
+    horses.forEach((horse) => {
+        horse.isInside = false;
+        console.log(
+            `${horse.nickname} has been moved outside to spend time in the sun.`
+        );
+    });
+}
+
+moveAllOutside();
+
+horses.forEach((horse) => {
+    horse.toggleLocation = function () {
+        this.isInside = !this.isInside;
+    };
+});
+
+function feedHorses() {
+    horses.forEach((horse) => {
+        if (!horse.isInside) {
+            console.log(
+                `${horse.nickname} is outside. Calling them in to eat.`
+            );
+            horse.isInside = true;
+        }
+        console.log(`${horse.nickname} eats ${horse.favoriteTreat}!`);
+        horse.isHungry = false;
+    });
+}
+
+feedHorses();
+
+function eveningMoveOutside(isDark) {
+    horses.forEach((horse) => {
+        if (isDark && !horse.isInside) {
+            console.log(
+                `${horse.nickname} is being brought inside as it is getting dark.`
+            );
+            horse.isInside = true;
+        } else if (!isDark) {
+            horse.isInside = false;
+            console.log(`${horse.nickname} is heading outside for fresh air.`);
+        }
+    });
+}
+
+eveningMoveOutside(true);
+
+//------------------------- Bonus -------------------------//
+
+// Replace the ascii art at the top of the file with art representing your stable.
